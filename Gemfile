@@ -20,7 +20,56 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+  gem "capistrano"
+  gem "rvm-capistrano"
+  gem 'annotate', ">=2.5.0"  
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+end
+
+group :development, :test do
+  gem "rspec-rails", "~> 2.12"
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'spork', '~> 1.0rc'
+  gem 'sqlite3'  
+end
+
+group :test do  
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'simplecov', :require => false
+  gem 'database_cleaner'
+  gem 'rb-inotify', '~> 0.8.8'
+  gem 'libnotify'
+end
+
+group :production do 
+  gem 'pg'
+  gem 'unicorn'  
+end
+
 gem 'jquery-rails'
+gem 'decent_exposure'
+gem 'russian'
+
+# Elasticsearch
+gem 'tire'
+
+gem 'bootstrap-sass', '~> 2.3.0.1'
+gem 'bootstrap-will_paginate'
+gem 'haml'
+
+gem 'will_paginate', '~> 3.0'
+
+gem 'whenever', :require => false
+gem 'sitemap_generator'
+
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'ckeditor'
+gem 'paperclip', '~> 3.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
