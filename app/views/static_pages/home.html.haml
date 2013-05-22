@@ -1,2 +1,26 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+%h3.last-news Последние новости
+.news-body
+  .article-description
+    %h3= link_to 'Lorem ipsum', '#'
+    .article-header= Time.now
+    .article-body
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec adipiscing nibh et justo euismod pulvinar et id magna. Praesent vehicula libero venenatis nisi condimentum cursus. Nulla convallis, velit non rutrum molestie, quam enim euismod diam, non iaculis neque orci sed ligula. Cras at mollis lacus. Duis viverra laoreet interdum. Proin egestas semper nisi at tincidunt. Donec tristique, nibh eget cursus interdum, quam elit semper libero, at accumsan turpis leo nec nisi. Mauris mollis fermentum cursus. Sed vitae nibh sit amet dui rutrum vulputate ac id diam. Pellentesque faucibus elementum nulla, sed fermentum libero suscipit vel. Donec varius justo ut velit sollicitudin hendrerit. Sed nec massa sed purus rhoncus lacinia. Quisque semper eros non diam ullamcorper quis volutpat massa accumsan. Pellentesque pretium ornare enim non consectetur. Suspendisse potenti.
+    .article-footer= link_to 'Читать дальше', '#'
+%h3.last-titles Последние добавления в базу
+.titles-body
+  .title-description    
+    .title-header
+      %div{class: "label label-info pull-right"}= link_to 'Animu', '#', class: "title-type"
+      .title-added= Time.now - 1.day      
+    .title-body
+      %h3.title-name= link_to 'Title name', '#'
+      %div{class: "title-poster pull-left thumbnail pull-left"}= image_tag 'rails.png'      
+      .title-date
+        %strong Дата выхода:
+        = Time.now - 2.years 
+      .title-genre 
+        %strong Жанр:
+        Genru
+      .title-desciption 
+        %strong Описание:
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec adipiscing nibh et justo euismod pulvinar et id magna. Praesent vehicula libero venenatis nisi condimentum cursus. Nulla convallis, velit non rutrum molestie, quam enim euismod diam, non iaculis neque orci sed ligula. Cras at mollis lacus. Duis viverra laoreet interdum. Proin egestas semper nisi at tincidunt. Donec tristique, nibh eget cursus interdum, quam elit semper libero, at accumsan turpis leo nec nisi. Mauris mollis fermentum cursus. Sed vitae nibh sit amet dui rutrum vulputate ac id diam. Pellentesque faucibus elementum nulla, sed fermentum libero suscipit vel. Donec varius justo ut velit sollicitudin hendrerit. Sed nec massa sed purus rhoncus lacinia. Quisque semper eros non diam ullamcorper quis volutpat massa accumsan. Pellentesque pretium ornare enim non consectetur. Suspendisse potenti.

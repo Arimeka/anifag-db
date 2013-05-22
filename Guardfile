@@ -21,6 +21,10 @@ guard 'rspec', version: 2, all_after_pass: false do
   watch('app/controllers/application_controller.rb')  { "spec/controllers" }
 
   # Capybara features specs
+  watch(%r{^app/views/(.+)/}) do |m|
+    (m[1][/_pages/] ? "spec/features/#{m[1]}_spec.rb" : 
+                       "spec/features/#{m[1].singularize}_pages_spec.rb")
+  end
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/features/#{m[1]}_spec.rb" }
 
   # Turnip features and steps
