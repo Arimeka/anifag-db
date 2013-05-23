@@ -19,6 +19,8 @@ class Article < ActiveRecord::Base
   include Tire::Model::Search
   include Tire::Model::Callbacks
 
+  index_name("#{Rails.env}-articles")
+
   validates :title, :content, :description, :permalink, :source, 
                                                         presence: true
   validates :source, allow_blank: true, format: {
