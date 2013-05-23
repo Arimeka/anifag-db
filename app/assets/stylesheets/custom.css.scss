@@ -101,29 +101,25 @@ textarea {
     margin-bottom: 40px;
   }
 
-  .news-body {
+  .news-body, .titles-body {
     margin-bottom: 20px;
-    .article-body {
+    .article-body, .title-body {
       margin-bottom: 20px;
     }
   }
 
-  .titles-body {
-    .title-description {
-      .title-header {
-        .title-type {
-          color: white;
-          &:hover {
-            text-decoration: none;
-          }
-        }        
-      }
-      .title-body {
-        .title-poster {
-          margin: 10px 10px 10px 0px;
-        }
-      }
+  .title-type, 
+  .article-category, 
+  .article-tag,
+  .title-tag {
+    color: white;
+    &:hover {
+      text-decoration: none;
     }
+  } 
+
+  .title-poster {
+    margin: 10px 10px 10px 0px;
   }
 }
 

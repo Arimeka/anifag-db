@@ -58,7 +58,7 @@ gem 'russian'
 # Elasticsearch
 gem 'tire'
 
-gem 'bootstrap-sass', '~> 2.3.0.1'
+gem 'bootstrap-sass', '~> 2.3.1.0'
 gem 'bootstrap-will_paginate'
 gem 'haml'
 

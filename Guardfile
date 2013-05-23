@@ -1,7 +1,7 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
-guard 'rspec', version: 2, all_after_pass: false do
+guard 'rspec', all_after_pass: false do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }
@@ -21,10 +21,6 @@ guard 'rspec', version: 2, all_after_pass: false do
   watch('app/controllers/application_controller.rb')  { "spec/controllers" }
 
   # Capybara features specs
-  watch(%r{^app/views/(.+)/}) do |m|
-    (m[1][/_pages/] ? "spec/features/#{m[1]}_spec.rb" : 
-                       "spec/features/#{m[1].singularize}_pages_spec.rb")
-  end
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/features/#{m[1]}_spec.rb" }
 
   # Turnip features and steps
