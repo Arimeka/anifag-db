@@ -1,0 +1,19 @@
+.sample-title
+  .header
+    %h4 Случайный тайтл    
+  .body
+    .title-header
+      %div{ class: "label label-info pull-right" }= link_to 'Animu', '#', class: "title-type"
+      %h4.title-name= link_to 'Title name', '#'
+    .title-body
+      .title-poster= image_tag 'rails.png', class: "img-rounded"
+      .title-date
+        %strong Дата выхода:
+        = (Time.now - 2.years).strftime("%Y-%m-%d") 
+      .title-genre 
+        %strong Жанр:
+        Genru
+      .title-desciption 
+        %strong Описание:
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec adipiscing nibh et justo euismod pulvinar et id magna. Praesent vehicula libero venenatis nisi condimentum cursus. Nulla convallis, velit...
+    .title-footer= link_to 'Полное описание', '#'

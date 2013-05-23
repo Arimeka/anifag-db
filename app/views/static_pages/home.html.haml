@@ -22,7 +22,7 @@
       .title-added= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M")
       %h3.title-name= link_to 'Title name', '#'      
     .title-body      
-      %div{class: "title-poster pull-left thumbnail pull-left"}= image_tag 'rails.png'      
+      %div{class: "title-poster pull-left thumbnail"}= image_tag 'rails.png'      
       .title-date
         %strong Дата выхода:
         = (Time.now - 2.years).strftime("%Y-%m-%d") 
