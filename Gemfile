@@ -29,8 +29,6 @@ end
 group :development, :test do
   gem "rspec-rails", "~> 2.12"
   gem 'guard-rspec'
-  gem 'guard-spork'
-  gem 'spork', '~> 1.0rc'
   gem 'sqlite3'  
 end
 
