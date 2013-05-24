@@ -36,3 +36,12 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+def zeus_running?
+  File.exists? '.zeus.sock'
+end
+ 
+if !zeus_running?
+  require 'simplecov'
+  SimpleCov.start
+end
