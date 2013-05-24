@@ -2,6 +2,10 @@
   <div class='navbar-inner'>
     <div class='container'>
       <%= link_to 'AnifagDB', root_path, class: 'brand' %>
+      <ul class="nav" id="head-menu">
+        <li><%= link_to 'Главная', root_path %></li>
+        <li><%= link_to 'Новости', articles_path %></li>
+      </ul>
       <div class='nav-collapse collapse pull-right'>
       </div>
     </div>
