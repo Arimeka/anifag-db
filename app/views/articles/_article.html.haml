@@ -18,3 +18,31 @@
     =link_to image_tag('facebook.png'), 'http://www.facebook.com/sharer.php?u=' + article_url(article), target: '_blank'
     =link_to image_tag('google+.png'), 'https://plus.google.com/share?url=' + article_url(article), target: '_blank'
 .comments
+  %ul{class: "nav nav-tabs", id: "comments"}
+    %li.active= link_to 'Вконтакте', '#vk', 'data-toggle' => 'tab'
+    %li= link_to 'Disqus', '#dq', 'data-toggle' => 'tab'
+  .tab-content
+    %div{class: "tab-pane active", id: "vk"}
+      %script{:type => "text/javascript",
+              :src  => "http://userapi.com/js/api/openapi.js?52"}
+      :javascript
+        VK.init({apiId: SITE_ID, onlyWidgets: true});
+      #vk_comments
+      :javascript
+        VK.Widgets.Comments("vk_comments", {limit: 15, width: "600", attach: false});
+    %div{class: "tab-pane", id: "dq"}
+      #disqus_thread
+      :javascript
+        var disqus_shortname = 'YOUR_SITE_NAME'; // required: replace example with your forum shortname
+    
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      %noscript
+        Please enable JavaScript to view the
+        %a{href: "http://disqus.com/?ref_noscript"} comments powered by Disqus.
+      %a{href: "http://disqus.com", class: "dsq-brlink"}
+        comments powered by
+        %span.logo-disqus Disqus
