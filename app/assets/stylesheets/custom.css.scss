@@ -131,7 +131,7 @@ textarea {
 }
 
 
-.last-news, .last-titles {
+.last-news, .last-titles, .article-name {
   border-bottom: 1px solid gray;
   margin-bottom: 40px;
 } 
@@ -161,6 +161,10 @@ textarea {
   .article-description {
     margin-bottom: 40px;
     border-bottom: 1px solid rgb(199, 199, 199);
+  }
+
+  .article-header {
+    margin-bottom: 20px;
   }
 } 
 

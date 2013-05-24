@@ -57,5 +57,5 @@ end
  
 if !zeus_running?
   require 'simplecov'
-  SimpleCov.start
+  SimpleCov.start 'rails'
 end
