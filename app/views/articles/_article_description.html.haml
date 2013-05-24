@@ -1,0 +1,13 @@
+%article.article-description    
+  .article-header      
+    %div{ class: "label label-info pull-right" }= link_to 'News', '#', class: "article-category"
+    %div{ class: "article-added"}= article.created_at.strftime("%Y-%m-%d %H:%M")
+    %h3= link_to article.title, article
+  .article-body= article.description.html_safe
+  .article-footer
+    = link_to 'Читать дальше', article
+    .article-tags
+      %strong Теги:
+      %ul.inline
+        %li{ class: "badge badge-info" }= link_to 'Bwah', '#', class: "article-tag"
+        %li{ class: "badge badge-info" }= link_to 'Sugoi', '#', class: "article-tag"

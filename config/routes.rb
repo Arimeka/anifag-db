@@ -1,6 +1,9 @@
 AnifagDb::Application.routes.draw do
   root to: "static_pages#home"
 
+  resources :articles, only: :show
+  get 'articles(/pages/:page)' => 'articles#index', as: :articles
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -13,9 +13,12 @@
 #
 
 require 'spec_helper'
+require 'test_helper'
 
 describe Article do
   let(:article) { FactoryGirl.create(:article) }
+  let(:first) { FactoryGirl.create(:article) } 
+  let(:second) { FactoryGirl.create(:article) } 
 
   subject { article }
 
@@ -30,9 +33,8 @@ describe Article do
   end
 
   it 'default order by created_at' do
-    first = FactoryGirl.create(:article)
-    second = FactoryGirl.create(:article)
-
+    first
+    second
     expect(Article.all).to eq([second, first])
   end
 
@@ -40,7 +42,7 @@ describe Article do
     article.permalink = 'test'
     article.to_param.should eq "#{article.id}-test"
   end
-
+  
   context 'is not valid' do
     it 'without title' do
       article.title = ''
@@ -85,5 +87,5 @@ describe Article do
         should be_invalid
       end
     end
-  end
+  end  
 end

@@ -34,10 +34,20 @@ class Article < ActiveRecord::Base
     "#{id}-#{permalink}"
   end
 
+  self.per_page = 10
+
   def self.search(params)
     tire.search(page: params[:page]) do
       query { string params[:query]} if params[:query].present?
       sort { by :created_at, 'desc' }
     end
+  end
+
+  tire.mapping do
+    indexes :id,           :index    => :not_analyzed
+    indexes :title,        :analyzer => 'snowball', :boost => 100
+    indexes :content,      :analyzer => 'snowball'
+    indexes :description,  :analyzer => 'snowball'
+    indexes :created_at,   :type => 'date', :include_in_all => false
   end
 end

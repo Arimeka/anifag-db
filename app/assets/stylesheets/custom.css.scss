@@ -130,34 +130,39 @@ textarea {
   margin-top: 30px;
 }
 
-.static_pages {
-  .last-news, .last-titles {
-    border-bottom: 1px solid gray;
-    margin-bottom: 40px;
-  }
 
-  .news-body, .titles-body {
+.last-news, .last-titles {
+  border-bottom: 1px solid gray;
+  margin-bottom: 40px;
+} 
+
+.news-body, .titles-body {
+  margin-bottom: 20px;
+  .article-body, .title-body {
     margin-bottom: 20px;
-    .article-body, .title-body {
-      margin-bottom: 20px;
-    }
   }
+}  
 
-  .title-type, 
-  .article-category, 
-  .article-tag,
-  .title-tag {
-    color: white;
-    &:hover {
-      text-decoration: none;
-    }
-  } 
+.title-poster {
+  margin: 10px 10px 10px 0px;
+}
 
-  .title-poster {
-    margin: 10px 10px 10px 0px;
+.title-type, 
+.article-category, 
+.article-tag,
+.title-tag {
+  color: white;
+  &:hover {
+    text-decoration: none;
   }
 }
 
+.articles {
+  .article-description {
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgb(199, 199, 199);
+  }
+} 
 
 
 
