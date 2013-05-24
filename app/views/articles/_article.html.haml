@@ -10,3 +10,11 @@
       %ul.inline
         %li{ class: "badge badge-info" }= link_to 'Bwah', '#', class: "article-tag"
         %li{ class: "badge badge-info" }= link_to 'Sugoi', '#', class: "article-tag"
+.share-buttons
+  .pull-right
+    %strong Поделиться: 
+    =link_to image_tag('twitter.png'), 'http://twitter.com/share?url=' + article_url(article), target: '_blank'
+    =link_to image_tag('vk.png'), 'http://vkontakte.ru/share.php?url=' + article_url(article), target: '_blank'
+    =link_to image_tag('facebook.png'), 'http://www.facebook.com/sharer.php?u=' + article_url(article), target: '_blank'
+    =link_to image_tag('google+.png'), 'https://plus.google.com/share?url=' + article_url(article), target: '_blank'
+.comments
