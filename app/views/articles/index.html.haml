@@ -1,6 +1,6 @@
 %h3.last-news Новости
 .news-body
   - articles.each do |article|
-    = render partial: 'articles/article_description', locals: { article: article }
+    = render partial: 'article_description', locals: { article: article }
 
 = will_paginate articles

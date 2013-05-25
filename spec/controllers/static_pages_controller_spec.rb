@@ -13,6 +13,12 @@ describe StaticPagesController do
       get :home
       response.should render_template('home')
     end
+    it 'is show 3 articles on page' do
+      articles = 40.times { FactoryGirl.create(:article) }
+
+      get :home
+      controller.articles.size.should eq(3)
+    end
   end
 
 end

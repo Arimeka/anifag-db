@@ -1,19 +1,7 @@
 %h3.last-news Последние новости
 .news-body
-  .article-description    
-    .article-header      
-      %div{ class: "label label-info pull-right" }= link_to 'News', '#', class: "article-category"
-      %div{ class: "article-added"}= Time.now.strftime("%Y-%m-%d %H:%M")
-      %h3= link_to 'Lorem ipsum', '#'
-    .article-body
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec adipiscing nibh et justo euismod pulvinar et id magna. Praesent vehicula libero venenatis nisi condimentum cursus. Nulla convallis, velit non rutrum molestie, quam enim euismod diam, non iaculis neque orci sed ligula. Cras at mollis lacus. Duis viverra laoreet interdum. Proin egestas semper nisi at tincidunt. Donec tristique, nibh eget cursus interdum, quam elit semper libero, at accumsan turpis leo nec nisi. Mauris mollis fermentum cursus. Sed vitae nibh sit amet dui rutrum vulputate ac id diam. Pellentesque faucibus elementum nulla, sed fermentum libero suscipit vel. Donec varius justo ut velit sollicitudin hendrerit. Sed nec massa sed purus rhoncus lacinia. Quisque semper eros non diam ullamcorper quis volutpat massa accumsan. Pellentesque pretium ornare enim non consectetur. Suspendisse potenti.
-    .article-footer
-      = link_to 'Читать дальше', '#'
-      .article-tags
-        %strong Теги:
-        %ul.inline
-          %li{ class: "badge badge-info" }= link_to 'Bwah', '#', class: "article-tag"
-          %li{ class: "badge badge-info" }= link_to 'Sugoi', '#', class: "article-tag"
+  - articles.each do |article|
+    = render partial: 'article_description', locals: { article: article }
 %h3.last-titles Последние добавления в базу
 .titles-body
   .title-description    

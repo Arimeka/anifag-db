@@ -69,6 +69,9 @@ gem 'sitemap_generator'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'ckeditor'
 gem 'paperclip', '~> 3.0'
+gem 'sanitize'
+
+gem 'nokogiri'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
