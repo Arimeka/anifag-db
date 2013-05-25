@@ -1,0 +1,6 @@
+%h3.search-results Результаты поиска
+.result
+  - results.each do |result|
+    = render partial: 'article_description', locals: { article: result } if result['_type'] == 'article'
+
+= will_paginate results

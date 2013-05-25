@@ -1,6 +1,8 @@
 AnifagDb::Application.routes.draw do
   root to: "static_pages#home"
 
+  get '/search' => 'static_pages#search', as: :search
+
   resources :articles, only: :show
   get 'articles(/pages/:page)' => 'articles#index', as: :articles
 

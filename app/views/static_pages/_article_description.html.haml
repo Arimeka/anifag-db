@@ -1,7 +1,7 @@
 %article{class: 'article-description media'}
   .article-header      
     %div{ class: "label label-info pull-right" }= link_to 'News', '#', class: "article-category"
-    %div{ class: "article-added"}= article.created_at.strftime("%Y-%m-%d %H:%M")
+    %div{ class: "article-added"}= article.created_at.to_time.strftime("%Y-%m-%d %H:%M")
   - img = get_image(article.description)
   = link_to( image_tag(img, class: 'media-object'), article, class: 'pull-left' ) if img
   .media-body
