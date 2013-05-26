@@ -1,6 +1,38 @@
 %h3.search-results Результаты поиска
+.search-control
+  .lead Расширенный поиск
+  %ul{class: "nav nav-tabs", id: "search"}
+    %li{class: "#{'active' if params[:type] == 'article'}"}= link_to 'Статьи', '#articles', 'data-toggle' => 'tab'
+  .tab-content
+    %div{class: "tab-pane #{'active' if params[:type] == 'article'}", id: "articles"}
+      = form_tag('/search', method: :get) do
+        %label.search-text
+          = search_field_tag :query, params[:query], class: 'input-xxlarge', placeholder: 'Поиск'
+        %label.checkbox
+          = check_box_tag 'type', 'article', params[:type]
+          Искать только статьи
+        = field_set_tag 'Сортировать' do
+          .row
+            .span4
+              %label.by
+                = select_tag 'sort_by', options_for_select(@sort_by, params[:sort_by])
+            .span4
+              %label.direction
+                = select_tag 'sort_direction', options_for_select(@sort_direction, params[:sort_direction])
+        = field_set_tag 'Искать в' do
+          %label{class: 'checkbox inline'}
+            = check_box_tag '[search_in]title', 'check', (params[:search_in][:title] if params[:search_in])
+            В заголовках
+          %label{class: 'checkbox inline'}
+            = check_box_tag '[search_in]description', 'check', (params[:search_in][:description] if params[:search_in])
+            В описании
+          %label{class: 'checkbox inline'}
+            = check_box_tag '[search_in]content', 'check', (params[:search_in][:content] if params[:search_in])
+            В теле статьи
+        .form-actions
+          = submit_tag 'Искать!', name: nil, class: 'btn btn-primary'
 .result
   - results.each do |result|
     = render partial: 'article_description', locals: { article: result } if result['_type'] == 'article'
 
-= will_paginate results
+= will_paginate results unless results.empty?
