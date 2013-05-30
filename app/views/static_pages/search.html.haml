@@ -2,9 +2,9 @@
 .search-control
   .lead Расширенный поиск
   %ul{class: "nav nav-tabs", id: "search"}
-    %li{class: "#{'active' if params[:type] == 'article'}"}= link_to 'Статьи', '#articles', 'data-toggle' => 'tab'
+    %li#nav-articles= link_to 'Статьи', '#articles', 'data-toggle' => 'tab'
   .tab-content
-    %div{class: "tab-pane #{'active' if params[:type] == 'article'}", id: "articles"}
+    %div{class: "tab-pane", id: "articles"}
       = form_tag('/search', method: :get) do
         %label.search-text
           = search_field_tag :query, params[:query], class: 'input-xxlarge', placeholder: 'Поиск'       
