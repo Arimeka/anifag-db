@@ -14,4 +14,6 @@ class Category < ActiveRecord::Base
 
   has_many :articles_categories, dependent: :destroy
   has_many :articles, through: :articles_categories
+
+  validates :title, :name, presence: true
 end

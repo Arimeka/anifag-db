@@ -12,5 +12,27 @@
 require 'spec_helper'
 
 describe Category do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:category) { FactoryGirl.create(:category) }
+
+  subject { category }
+
+  context 'is respond and valid' do 
+    it { should respond_to(:title) }
+    it { should respond_to(:name) }
+    it { should respond_to(:articles) }
+
+    it { should be_valid }
+  end
+  
+  context 'is not valid' do
+    it 'without title' do
+      category.title = ''
+      should be_invalid
+    end
+
+    it 'without name' do
+      category.name= ''
+      should be_invalid
+    end
+  end
 end

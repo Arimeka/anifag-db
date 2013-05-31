@@ -6,5 +6,11 @@ FactoryGirl.define do
     description "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
     sequence(:permalink) { |n| "article-#{n}" }
     sequence(:source) { |n| "http://www.example.com/article-#{n}" }
+    category
+  end
+
+  factory :category do
+    sequence(:name) { |n| "name-#{n}" }
+    sequence(:title) { |n| "Name #{n}" }
   end
 end
