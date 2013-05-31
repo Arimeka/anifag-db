@@ -15,11 +15,16 @@ $ ->
       toggleDisable(element + ' input') 
       toggleDisable(element + ' select') 
 
-  $('#search-articles').attr("disabled", !$('#check-articles-search').prop("checked"))
-  $('#search-articles input').attr("disabled", !$('#check-articles-search').prop("checked"))
-  $('#search-articles select').attr("disabled", !$('#check-articles-search').prop("checked"))
+  checkDisable = (checkbox,element) ->
+    $(element).attr("disabled", !$(checkbox).prop("checked"))
+    $(element + ' input').attr("disabled", !$(checkbox).prop("checked"))
+    $(element + ' select').attr("disabled", !$(checkbox).prop("checked"))
+    
+  checkDisable('#check-articles-search','#search-articles')
+
   $('#articles').addClass('active') if $('#check-articles-search').prop("checked")
   $('#nav-articles').addClass('active') if $('#check-articles-search').prop("checked")
+
   toggleDisableSearch('#check-articles-search','#search-articles')
 
   false
