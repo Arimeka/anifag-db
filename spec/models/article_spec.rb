@@ -28,6 +28,7 @@ describe Article do
     it { should respond_to(:description) }
     it { should respond_to(:permalink) }
     it { should respond_to(:source) }
+    it { should respond_to(:categories) }
 
     it { should be_valid }
   end

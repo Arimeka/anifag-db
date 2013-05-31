@@ -20,6 +20,9 @@ class Article < ActiveRecord::Base
   include Tire::Model::Callbacks
 
   index_name("#{Rails.env}-articles")
+  
+  has_many :articles_categories, dependent: :destroy
+  has_many :categories, through: :articles_categories
 
   validates :title, :content, :description, :permalink, :source, 
                                                         presence: true

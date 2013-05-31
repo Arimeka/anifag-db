@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130523111909) do
+ActiveRecord::Schema.define(:version => 20130531163207) do
 
   create_table "articles", :force => true do |t|
     t.text     "content",     :null => false
@@ -23,6 +23,27 @@ ActiveRecord::Schema.define(:version => 20130523111909) do
     t.datetime "updated_at",  :null => false
   end
 
+  add_index "articles", ["created_at", "title"], :name => "index_articles_on_created_at_and_title"
   add_index "articles", ["created_at"], :name => "index_articles_on_created_at"
+
+  create_table "articles_categories", :force => true do |t|
+    t.integer  "article_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "articles_categories", ["article_id"], :name => "index_articles_categories_on_article_id"
+  add_index "articles_categories", ["category_id"], :name => "index_articles_categories_on_category_id"
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "categories", ["created_at"], :name => "index_categories_on_created_at"
+  add_index "categories", ["title"], :name => "index_categories_on_title"
 
 end
