@@ -8,7 +8,7 @@
       = render partial: 'articles_search_form'
 .result
   - results.each do |result|
-    = render partial: 'article_description', locals: { article: result } if result['_type'] == 'article'
+    = render partial: 'article_search_result', locals: { article: result } if result['_type'] == 'article'
 
 = will_paginate results unless results.empty?
 
