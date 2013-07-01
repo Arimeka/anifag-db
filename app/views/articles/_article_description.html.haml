@@ -11,5 +11,5 @@
     .article-tags
       %strong Теги:
       %ul.inline
-        %li{ class: "badge badge-info" }= link_to 'Bwah', '#', class: "article-tag"
-        %li{ class: "badge badge-info" }= link_to 'Sugoi', '#', class: "article-tag"
+        -article.tag_list.each do |tag|
+          %li{ class: "badge badge-info" }= link_to tag, '#', class: "article-tag" 

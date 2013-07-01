@@ -14,7 +14,9 @@
 #
 
 class Article < ActiveRecord::Base
-  attr_accessible :content, :description, :permalink, :source, :title
+  attr_accessible :content, :description, :permalink, :source, :title,
+                  :tag_list
+  acts_as_taggable
 
   include Tire::Model::Search
   include Tire::Model::Callbacks
