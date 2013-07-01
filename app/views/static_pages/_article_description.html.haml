@@ -2,7 +2,7 @@
   .article-header 
     %ul{ class: "inline pull-right" }
       -article.categories.each do |category|
-        %li{ class: "label label-info" }= link_to category.title, '#', class: "article-category"     
+        %li{ class: "label label-info" }= link_to category.title, category, class: "article-category"     
     %div{ class: "article-added"}= article.created_at.to_time.strftime("%Y-%m-%d %H:%M")
   - img = get_image(article.description)
   = link_to( image_tag(img, class: 'media-object'), article, class: 'pull-left' ) if img

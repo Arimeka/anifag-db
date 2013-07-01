@@ -6,6 +6,8 @@ AnifagDb::Application.routes.draw do
   resources :articles, only: :show
   get 'articles(/pages/:page)' => 'articles#index', as: :articles
 
+  get 'categories/:id(/pages/:page)' => 'categories#show', as: :category
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

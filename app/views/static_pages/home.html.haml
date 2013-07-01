@@ -1,4 +1,4 @@
-%h3.last-news Последние новости
+%h3.last-news Последние статьи
 .news-body
   - articles.each do |article|
     = render partial: 'article_description', locals: { article: article }

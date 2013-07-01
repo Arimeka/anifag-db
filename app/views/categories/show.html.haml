@@ -1,0 +1,7 @@
+%h2.category-name= category.title
+
+.news-body
+  - articles.each do |article|
+    = render partial: 'articles/article_description', locals: { article: article }
+
+= will_paginate articles
