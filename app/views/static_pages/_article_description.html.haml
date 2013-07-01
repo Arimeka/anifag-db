@@ -1,8 +1,6 @@
 %article{class: 'article-description media'}
   .article-header 
-    %ul{ class: "inline pull-right" }
-      -article.categories.each do |category|
-        %li{ class: "label label-info" }= link_to category.title, category, class: "article-category"     
+    = render partial: 'articles/article_categories', locals: { article: article }     
     %div{ class: "article-added"}= article.created_at.to_time.strftime("%Y-%m-%d %H:%M")
   - img = get_image(article.description)
   = link_to( image_tag(img, class: 'media-object'), article, class: 'pull-left' ) if img
@@ -11,8 +9,4 @@
     .article-body= Sanitize.clean(article.description).html_safe
     .article-footer
       = link_to 'Читать дальше', article
-      .article-tags
-        %strong Теги:
-        %ul.inline
-          -article.tag_list.each do |tag|
-            %li{ class: "badge badge-info" }= link_to tag, '#', class: "article-tag"          
+      = render partial: 'articles/article_tags', locals: { article: article }       

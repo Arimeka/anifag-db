@@ -1,0 +1,6 @@
+-if article.tag_list.any?
+  .article-tags
+    %strong Теги:
+    %ul.inline
+      -article.tag_list.each do |tag|
+        %li{ class: "badge badge-info" }= link_to tag, '#', class: "article-tag"
