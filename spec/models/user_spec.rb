@@ -27,5 +27,15 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:user) { FactoryGirl.create(:user) }
+
+  subject { user }
+
+  context 'is respond and valid' do 
+    it { should respond_to(:email) }
+    it { should respond_to(:password) }
+    it { should respond_to(:password_confirmation) }
+
+    it { should be_valid }
+  end
 end
