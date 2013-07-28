@@ -1,5 +1,6 @@
 %h3.last-posts= t 'article.index.title'
-.post-body
+
+.posts-body
   - articles.each do |article|
     = render partial: 'article_description', locals: { article: article }
 

@@ -48,3 +48,7 @@ ru:
         in_description: "В описании"
         in_body: "В теле статьи"
         submit: "Искать!"
+
+  will_paginate:
+    previous_label: "Назад"
+    next_label: "Вперед"

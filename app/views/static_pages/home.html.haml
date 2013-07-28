@@ -1,5 +1,5 @@
 %h3.last-posts=t 'static_page.home.last_posts' 
-.post-body
+.posts-body
   - articles.each do |article|
     = render partial: 'article_description', locals: { article: article }
 %h3.last-titles=t 'static_page.home.last_titles' 

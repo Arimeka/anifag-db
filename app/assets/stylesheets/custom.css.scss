@@ -94,6 +94,7 @@ textarea {
    ========================================================================== */
 
 @import "bootstrap";
+@import "bootstrap-responsive";
 
 body {
   padding-top: 40px;
@@ -144,9 +145,18 @@ body {
   margin-bottom: 40px;
 } 
 
-.post-body, .titles-body {
+.posts-body, .titles-body {
   margin-bottom: 20px;
   .article-body, .title-body {
+    margin-bottom: 20px;
+  }
+
+  .article-description {
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgb(199, 199, 199);
+  }
+
+  .article-header {
     margin-bottom: 20px;
   }
 }  
@@ -164,17 +174,6 @@ body {
     text-decoration: none;
   }
 }
-
-.articles {
-  .article-description {
-    margin-bottom: 40px;
-    border-bottom: 1px solid rgb(199, 199, 199);
-  }
-
-  .article-header {
-    margin-bottom: 20px;
-  }
-} 
 
 .media-object {
   width: 160px;

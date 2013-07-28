@@ -1,6 +1,6 @@
-%h2.category-name= category.title
+%h2.category-name= UnicodeUtils.upcase(category.title)
 
-.news-body
+.posts-body
   - articles.each do |article|
     = render partial: 'articles/article_description', locals: { article: article }
 
