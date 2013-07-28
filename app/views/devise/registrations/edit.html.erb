@@ -3,23 +3,23 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %>
+  <div class="form-group"><%= f.label :email %>
   <%= f.email_field :email, :autofocus => true %></div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div><%=t 'devise.confirmation.pending_reconfirmation', unconfirmed_email: resource.unconfirmed_email %></div>
   <% end %>
 
-  <div><%= f.label :password, t 'devise.registration.edit.new_password' %> <i><%=t 'form.keep_password' %></i>
+  <div class="form-group"><%= f.label :password, t 'devise.registration.edit.new_password' %> <i><%=t 'form.keep_password' %></i>
   <%= f.password_field :password, :autocomplete => "off" %></div>
 
-  <div><%= f.label :password_confirmation %>
+  <div class="form-group"><%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.label :current_password, t 'devise.registration.edit.current_password' %> <i><%=t 'form.need_for_change' %></i>
+  <div class="form-group"><%= f.label :current_password, t 'devise.registration.edit.current_password' %> <i><%=t 'form.need_for_change' %></i>
   <%= f.password_field :current_password %></div>
 
-  <div><%= f.submit t 'devise.registration.edit.submit' %></div>
+  <%= f.submit t('devise.registration.edit.submit'), name: nil, class: 'btn btn-default' %>
 <% end %>
 
 <h3><%= t 'devise.registration.delete.title' %></h3>
