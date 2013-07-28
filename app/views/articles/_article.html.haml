@@ -8,15 +8,15 @@
     = render partial: 'articles/article_tags', locals: { article: article } 
 .share-buttons
   .pull-right
-    %strong Поделиться: 
+    %strong=t 'article.share' 
     =link_to image_tag('twitter.png'), 'http://twitter.com/share?url=' + article_url(article), target: '_blank'
     =link_to image_tag('vk.png'), 'http://vkontakte.ru/share.php?url=' + article_url(article), target: '_blank'
     =link_to image_tag('facebook.png'), 'http://www.facebook.com/sharer.php?u=' + article_url(article), target: '_blank'
     =link_to image_tag('google+.png'), 'https://plus.google.com/share?url=' + article_url(article), target: '_blank'
 .comments
   %ul{class: "nav nav-tabs", id: "comments"}
-    %li.active= link_to 'Вконтакте', '#vk', 'data-toggle' => 'tab'
-    %li= link_to 'Disqus', '#dq', 'data-toggle' => 'tab'
+    %li.active= link_to t('vk'), '#vk', 'data-toggle' => 'tab'
+    %li= link_to t('dq'), '#dq', 'data-toggle' => 'tab'
   .tab-content
     %div{class: "tab-pane active", id: "vk"}
       %script{:type => "text/javascript",

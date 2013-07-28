@@ -1,0 +1,50 @@
+ru:
+  back: "Назад"
+  enter: "Войти"
+  home: "Главная"
+  articles: "Статьи"
+  vk: "ВКонтакте"
+  dq: "Disqus"
+  old_ie: |
+    <p class="chromeframe">Вы используете <strong>очень старый</strong> браузер. 
+    Пожалуйста, <a href="http://browsehappy.com/">обновите свой браузер</a> или 
+    <a href="http://www.google.com/chromeframe/?redirect=true">активируйте Google Chrome Frame</a>.</p>
+  activerecord:
+    attributes:
+      user:
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        remember_me: "Запомнить меня"
+
+  article:
+    more: "Читать дальше"
+    share: "Поделиться:"
+    index:
+      title: "Статьи"
+
+  form:
+    keep_password: "(оставьте пустым, если не хотите менять его)"
+    need_for_change: "(необходим для подтверждения изменений)"
+    confirm_question: "Уверены?"
+    search:
+      sort: "Сортировать"
+      search_text: "Поиск"
+      search_in: "Искать в"
+
+  sidebar:
+    sample_title:
+      title: "Случайный тайтл"
+
+  static_page:
+    home:
+      last_posts: "Последние статьи"
+      last_titles: "Последние добавления в базу"
+    search:
+      title: "Результаты поиска"
+      advanced_search: "Расширенный поиск"
+      form:        
+        check_articles_search: "Искать только статьи"
+        in_title: "В заголовках"
+        in_description: "В описании"
+        in_body: "В теле статьи"
+        submit: "Искать!"

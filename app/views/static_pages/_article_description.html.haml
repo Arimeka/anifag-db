@@ -8,5 +8,5 @@
     %h3.media-heading= link_to article.title, article
     .article-body= Sanitize.clean(article.description).html_safe
     .article-footer
-      = link_to 'Читать дальше', article
+      = link_to t('article.more'), article
       = render partial: 'articles/article_tags', locals: { article: article }       

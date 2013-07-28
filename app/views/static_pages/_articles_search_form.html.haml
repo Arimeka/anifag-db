@@ -1,11 +1,11 @@
 = form_tag('/search', method: :get) do
   %label.search-text
-    = search_field_tag :query, params[:query], class: 'input-xxlarge', placeholder: 'Поиск'       
+    = search_field_tag :query, params[:query], class: 'input-xxlarge', placeholder: t('form.search.search_text')
   %label.checkbox
     = check_box_tag 'type', 'article', params[:type], id: 'check-articles-search'
-    Искать только статьи
+    =t 'static_page.search.form.check_articles_search'
   = field_set_tag nil, id: 'search-articles' do
-    = field_set_tag 'Сортировать' do
+    = field_set_tag t('form.search.sort') do
       .row
         .span4
           %label.by
@@ -13,16 +13,16 @@
         .span4
           %label.direction
             = select_tag 'sort_direction', options_for_select(@sort_direction, params[:sort_direction])
-    = field_set_tag 'Искать в' do
+    = field_set_tag t('form.search.search_in') do
       %label{class: 'checkbox inline'}
         = check_box_tag '[search_in]title', 'check', (params[:search_in][:title] if params[:search_in])
-        В заголовках
+        =t 'static_page.search.form.in_title'
       %label{class: 'checkbox inline'}
         = check_box_tag '[search_in]description', 'check', (params[:search_in][:description] if params[:search_in])
-        В описании
+        =t 'static_page.search.form.in_description'
       %label{class: 'checkbox inline'}
         = check_box_tag '[search_in]content', 'check', (params[:search_in][:content] if params[:search_in])
-        В теле статьи
+        =t 'static_page.search.form.in_body'
     .form-actions
-      = submit_tag 'Искать!', name: nil, class: 'btn btn-primary'
+      = submit_tag t('static_page.search.form.submit'), name: nil, class: 'btn btn-primary'
 

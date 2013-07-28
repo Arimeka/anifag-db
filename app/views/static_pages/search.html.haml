@@ -1,6 +1,6 @@
-%h3.search-results Результаты поиска
+%h3.search-results=t 'static_page.search.title'
 .search-control
-  .lead Расширенный поиск
+  .lead=t 'static_page.search.advanced_search'
   %ul{class: "nav nav-tabs", id: "search"}
     %li#nav-articles= link_to 'Статьи', '#articles', 'data-toggle' => 'tab'
   .tab-content
