@@ -47,6 +47,7 @@ GEM
       multi_json (~> 1.0)
     acts-as-taggable-on (2.4.1)
       rails (>= 3, < 5)
+    addressable (2.3.5)
     annotate (2.5.0)
       rake
     ansi (1.4.3)
@@ -146,6 +147,10 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.8.0)
+    launchy (2.3.0)
+      addressable (~> 2.3)
+    letter_opener (1.1.1)
+      launchy (~> 2.2)
     libnotify (0.8.0)
       ffi (>= 1.0.11)
     listen (0.7.3)
@@ -313,6 +318,7 @@ DEPENDENCIES
   guard-rspec
   haml
   jquery-rails
+  letter_opener
   libnotify
   meta_request
   nokogiri

@@ -1,6 +1,7 @@
 ru:
   back: "Назад"
   enter: "Войти"
+  logout: "Выйти"
   home: "Главная"
   articles: "Статьи"
   vk: "ВКонтакте"
@@ -15,6 +16,10 @@ ru:
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
         remember_me: "Запомнить меня"
+        current_password: "Текущий пароль"
+        name: "Отоброжаемое имя"
+    models:
+      user: "Пользователь"
 
   article:
     more: "Читать дальше"
@@ -48,6 +53,9 @@ ru:
         in_description: "В описании"
         in_body: "В теле статьи"
         submit: "Искать!"
+
+  users:
+    edit_profile: "Редактировать профиль"
 
   will_paginate:
     previous_label: "Назад"

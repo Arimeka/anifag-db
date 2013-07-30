@@ -22,6 +22,7 @@
 #  locked_at              :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  name                   :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -33,6 +34,8 @@ class User < ActiveRecord::Base
          :confirmable, :lockable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :name, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
+
+  validates :name, presence: true, uniqueness: true
 end

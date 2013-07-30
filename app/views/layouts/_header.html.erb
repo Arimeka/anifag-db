@@ -8,7 +8,12 @@
       </ul>
       <div class='nav-collapse collapse pull-right'>
         <ul class="nav">
-          <li><%= link_to t('enter'), new_user_session_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.name, users_user_path(current_user) %></li>
+            <li><%= link_to t('logout'), destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to t('enter'), new_user_session_path %></li>
+          <%end %>
         </ul>      
         <%= form_tag search_path, method: :get, class: 'navbar-search' do %>
           <%= search_field_tag :query, params[:query], class: 'search-query', placeholder: t('form.search.search_text') %>

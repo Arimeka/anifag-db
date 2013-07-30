@@ -10,6 +10,10 @@ AnifagDb::Application.routes.draw do
 
   get 'categories/:id(/pages/:page)' => 'categories#show', as: :category
 
+  namespace :users do
+    get '/:id' => 'users#show', as: :user
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
