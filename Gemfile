@@ -72,6 +72,9 @@ gem 'ckeditor'
 gem 'paperclip', '~> 3.0'
 gem 'sanitize'
 
+gem 'authority'
+gem 'rolify'
+
 gem 'nokogiri'
 
 gem 'acts-as-taggable-on'

@@ -5,7 +5,7 @@ AnifagDb::Application.routes.draw do
 
   get '/search' => 'static_pages#search', as: :search
 
-  resources :articles, only: :show
+  resources :articles, except: :index
   get 'articles(/pages/:page)' => 'articles#index', as: :articles
 
   get 'categories/:id(/pages/:page)' => 'categories#show', as: :category

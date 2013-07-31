@@ -14,6 +14,9 @@
 #
 
 class Article < ActiveRecord::Base
+  resourcify
+  include Authority::Abilities
+  
   attr_accessible :content, :description, :permalink, :source, :title,
                   :tag_list
   acts_as_taggable
