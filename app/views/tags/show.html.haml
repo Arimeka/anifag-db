@@ -1,0 +1,7 @@
+%h3.last-posts= t 'article.index.title'
+
+.posts-body
+  - articles.each do |article|
+    = render partial: 'articles/article_description', locals: { article: article }
+
+= will_paginate articles

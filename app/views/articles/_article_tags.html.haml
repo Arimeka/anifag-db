@@ -3,4 +3,4 @@
     %strong Теги:
     %ul.inline
       -article.tag_list.each do |tag|
-        %li{ class: "badge badge-info" }= link_to tag, '#', class: "article-tag"
+        %li{ class: "badge badge-info" }= link_to tag, tagged_with_path(tag), class: "article-tag"

@@ -1,4 +1,5 @@
-AnifagDb::Application.routes.draw do
+AnifagDb::Application.routes.draw do  
+
   devise_for :users
 
   root to: "static_pages#home"
@@ -7,6 +8,7 @@ AnifagDb::Application.routes.draw do
 
   resources :articles, except: :index
   get 'articles(/pages/:page)' => 'articles#index', as: :articles
+  get 'tags/:tag(/pages/:page)' => 'tags#show', as: :tagged_with
 
   get 'categories/:id(/pages/:page)' => 'categories#show', as: :category
 
