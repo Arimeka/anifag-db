@@ -3,7 +3,10 @@
   .article-header 
     = render partial: 'articles/article_categories', locals: { article: article }       
     %div{ class: "article-added"}= article.created_at.strftime("%Y-%m-%d %H:%M")    
-  .article-body= article.content.html_safe
+  .article-body
+    - if article.main_image
+      .main-image= link_to image_tag(main_image_url(article.main_image, :large)), main_image_url(article.main_image, :original)
+    = article.content.html_safe
   .article-footer
     = render partial: 'articles/article_tags', locals: { article: article } 
 .share-buttons

@@ -28,7 +28,8 @@ if Object.const_defined?("Rich")
     # remember to re-generate your styles by running:
     #   rake rich:refresh_assets
     config.image_styles = {
-      :thumb => "100x100#"
+      :thumb => "160x250#",
+      large: "450x450#"
     }
 
     # == Convert options
@@ -51,6 +52,7 @@ if Object.const_defined?("Rich")
     #
     # Default:
     # config.allowed_styles = :all
+    config.allowed_styles = [ :large, :thumb ]
     
     # == Default Style
     # 

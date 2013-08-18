@@ -3,7 +3,12 @@
     = render partial: 'articles/article_categories', locals: { article: article }      
     %div{ class: "article-added"}= article.created_at.strftime("%Y-%m-%d %H:%M")
     %h3= link_to article.title, article
-  .article-body= article.description.html_safe
+  - if article.main_image
+    .article-body
+      .main-image= image_tag main_image_url(article.main_image, :large)
+      %p= article.description
+  - else
+    .article-body= article.description.html_safe
   .article-footer
     = link_to t('article.more'), article
     = render partial: 'articles/article_tags', locals: { article: article } 

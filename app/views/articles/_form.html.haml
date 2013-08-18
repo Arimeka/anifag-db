@@ -6,14 +6,18 @@
   .row
     .span4
       .control-group
-      = f.label :source, class: 'control-label'
+        = f.label :source, class: 'control-label'
       .controls
         = f.text_field :source
       .control-group
-      = f.label :permalink, class: 'control-label'
+        = f.label :permalink, class: 'control-label'
       .controls
         =  f.text_field :permalink
     .span4
+      .control-group
+        = f.label :main_image, class: 'control-label'
+      .controls
+        = f.input :main_image, as: :rich_picker, config: { class: 'btn'}, label: false
       
 
   .control-group

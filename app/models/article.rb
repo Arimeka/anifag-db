@@ -12,6 +12,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :integer
+#  main_image  :string(255)
 #
 
 class Article < ActiveRecord::Base
@@ -19,7 +20,7 @@ class Article < ActiveRecord::Base
   include Authority::Abilities
   
   attr_accessible :content, :description, :permalink, :source, :title,
-                  :tag_list
+                  :tag_list, :main_image
   acts_as_taggable
 
   include Tire::Model::Search
@@ -32,8 +33,7 @@ class Article < ActiveRecord::Base
   has_many :articles_categories, dependent: :destroy
   has_many :categories, through: :articles_categories
 
-  validates :title, :content, :description, :permalink, :source, 
-                                                        presence: true
+  validates :title, :content, :description, :permalink, presence: true
   validates :source, allow_blank: true, format: {
     with:    %r{^((http|https):\/\/)*[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,6}(:[0-9]{1,5})?(\/.*)?$}ix,
     message: 'не соответствует формату URL.'

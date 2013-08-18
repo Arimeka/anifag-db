@@ -17,6 +17,11 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    if article.save
+      redirect_to article
+    else
+      render :new
+    end
   end
 
   def edit

@@ -10,6 +10,21 @@ ru:
     <p class="chromeframe">Вы используете <strong>очень старый</strong> браузер. 
     Пожалуйста, <a href="http://browsehappy.com/">обновите свой браузер</a> или 
     <a href="http://www.google.com/chromeframe/?redirect=true">активируйте Google Chrome Frame</a>.</p>
+
+  available_styles: "Доступные стили"
+  upload_a_file: "Загрузить файл"
+  insert_one: "Вставить одно"
+  insert_one_tip: "Вставить одно"
+  insert_many: "Вставить несколько"
+  insert_many_tip: "Вставить несколько (не закрывает окно)"
+  view_grid: "В виде плитки"
+  view_grid_tip: "В виде плитки"
+  view_list: "В виде списка"
+  view_list_tip: "В виде списка"
+  delete: "Удалить данный файл"
+  delete_confirm: "Вы уверены?"
+  picker_browse: "Выбрать или загрузить"
+
   activerecord:
     attributes:
       user:
@@ -24,6 +39,7 @@ ru:
         content: "Содержание"
         source: "Источник"
         permalink: "Slug"
+        main_image: "Главное изображение"
     models:
       user: "Пользователь"
 
