@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130730175103) do
+ActiveRecord::Schema.define(:version => 20130801174009) do
 
   create_table "articles", :force => true do |t|
     t.text     "content",     :null => false
@@ -21,10 +21,12 @@ ActiveRecord::Schema.define(:version => 20130730175103) do
     t.string   "source"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
   end
 
   add_index "articles", ["created_at", "title"], :name => "index_articles_on_created_at_and_title"
   add_index "articles", ["created_at"], :name => "index_articles_on_created_at"
+  add_index "articles", ["user_id"], :name => "index_articles_on_user_id"
 
   create_table "articles_categories", :force => true do |t|
     t.integer  "article_id"
@@ -49,6 +51,19 @@ ActiveRecord::Schema.define(:version => 20130730175103) do
   add_index "categories", ["created_at"], :name => "index_categories_on_created_at"
   add_index "categories", ["name"], :name => "index_categories_on_name", :unique => true
   add_index "categories", ["title"], :name => "index_categories_on_title"
+
+  create_table "rich_rich_files", :force => true do |t|
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.string   "rich_file_file_name"
+    t.string   "rich_file_content_type"
+    t.integer  "rich_file_file_size"
+    t.datetime "rich_file_updated_at"
+    t.string   "owner_type"
+    t.integer  "owner_id"
+    t.text     "uri_cache"
+    t.string   "simplified_type",        :default => "file"
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"

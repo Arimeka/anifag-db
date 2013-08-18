@@ -1,0 +1,30 @@
+= semantic_form_for article do |f|
+  .control-group
+    .controls
+      = f.text_field :title, placeholder: t('activerecord.attributes.article.title'), class: 'input-block-level'
+
+  .row
+    .span4
+      .control-group
+      = f.label :source, class: 'control-label'
+      .controls
+        = f.text_field :source
+      .control-group
+      = f.label :permalink, class: 'control-label'
+      .controls
+        =  f.text_field :permalink
+    .span4
+      
+
+  .control-group
+    = f.label :description, class: 'control-label'
+    .controls
+      = f.text_area :description, rows: 8, class: 'input-block-level'
+
+  .control-group
+    = f.label :content, class: 'control-label'
+    .controls
+      = f.input :content, as: :rich, config: { width: '100%', height: '400px' }, label: false
+
+  .form-actions
+    = f.submit t('form.save'), class: 'btn btn-default'

@@ -1,4 +1,4 @@
-AnifagDb::Application.routes.draw do  
+AnifagDb::Application.routes.draw do    
 
   devise_for :users
 
@@ -15,6 +15,8 @@ AnifagDb::Application.routes.draw do
   namespace :users do
     get '/:id' => 'users#show', as: :user
   end
+
+  mount Rich::Engine => '/rich', :as => 'rich'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

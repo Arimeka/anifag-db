@@ -39,5 +39,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
+  has_many :articles
+
   validates :name, presence: true, uniqueness: true
 end

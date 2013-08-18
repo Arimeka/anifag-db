@@ -18,6 +18,12 @@ ru:
         remember_me: "Запомнить меня"
         current_password: "Текущий пароль"
         name: "Отоброжаемое имя"
+      article:
+        title: "Название"
+        description: "Описание"
+        content: "Содержание"
+        source: "Источник"
+        permalink: "Slug"
     models:
       user: "Пользователь"
 
@@ -26,8 +32,11 @@ ru:
     share: "Поделиться:"
     index:
       title: "Статьи"
+    new:
+      title: "Новая статья"
 
   form:
+    save: "Сохранить"
     keep_password: "(оставьте пустым, если не хотите менять его)"
     need_for_change: "(необходим для подтверждения изменений)"
     confirm_question: "Уверены?"

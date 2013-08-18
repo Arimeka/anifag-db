@@ -62,6 +62,8 @@ gem 'bootstrap-sass', '~> 2.3.2.1'
 gem 'bootstrap-will_paginate'
 gem 'haml'
 
+gem 'rich'
+
 gem 'will_paginate', '~> 3.0'
 
 gem 'whenever', :require => false

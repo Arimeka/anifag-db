@@ -11,6 +11,7 @@
 #  source      :string(255)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  user_id     :integer
 #
 
 class Article < ActiveRecord::Base
@@ -25,6 +26,8 @@ class Article < ActiveRecord::Base
   include Tire::Model::Callbacks
 
   index_name("#{Rails.env}-articles")
+
+  belongs_to :user
   
   has_many :articles_categories, dependent: :destroy
   has_many :categories, through: :articles_categories
