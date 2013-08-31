@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    authorize_action_for article
     if article.save
       redirect_to article
     else
@@ -25,11 +26,14 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    authorize_action_for article
   end
 
   def update
+    authorize_action_for article
   end
 
   def destroy
+    authorize_action_for article
   end
 end

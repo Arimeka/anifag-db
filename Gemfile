@@ -63,6 +63,7 @@ gem 'bootstrap-will_paginate'
 gem 'haml'
 
 gem 'rich'
+gem 'fancybox2-rails', '~> 0.2.4'
 
 gem 'will_paginate', '~> 3.0'
 
@@ -70,7 +71,7 @@ gem 'whenever', :require => false
 gem 'sitemap_generator'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
-gem 'ckeditor'
+# gem 'ckeditor'
 gem 'paperclip', '~> 3.0'
 gem 'sanitize'
 

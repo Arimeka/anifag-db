@@ -4,15 +4,15 @@ class ArticleAuthorizer < ApplicationAuthorizer
     true
   end
 
-  def self.updatable_by?(user)
-    resource.author == user || user.has_role?(:editor)
+  def updatable_by?(user)
+    resource.user == user || user.has_role?(:editor)
   end
 
   def self.creatable_by?(user)
     user.has_role?(:writer)
   end
 
-  def self.deletable_by?(user)
-    resource.author == user || user.has_role?(:editor)
+  def deletable_by?(user)
+    resource.user == user || user.has_role?(:editor)
   end
 end

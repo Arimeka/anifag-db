@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap-tab
 //= require bootstrap-alert
+//= require fancybox
 //= require_tree .
