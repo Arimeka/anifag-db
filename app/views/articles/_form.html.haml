@@ -30,5 +30,32 @@
     .controls
       = f.input :content, as: :rich, config: { width: '100%', height: '400px' }, label: false
 
+  .row
+    .span4      
+      .control-group
+        = f.label :categories, class: 'control-label'
+      .controls#categories
+        = select_tag :category, options_from_collection_for_select(Category.all, :id, :title), include_blank: true
+        - article.category_ids.each do |id|
+          = hidden_field_tag 'article[category_ids][]', id
+        %ul.inline#categories-lables
+          - article.categories.each do |category|
+            %li
+              %span.label.label-info
+                = link_to '&times;'.html_safe, '#', class: 'small-close', id: category.id
+                = category.title
+    .span4
+      .control-group
+        = f.label :tags, class: 'control-label'
+      .controls
+        = text_field_tag :tag, nil, 'data-provide' => 'typeahead', 'data-source' => ActsAsTaggableOn::Tag.pluck(:name).to_s, autocomplete: "off"
+        = hidden_field_tag 'article[tag_list]'
+        %ul.inline#tags-lables
+          - article.tag_list.each do |tag|
+            %li
+              %span.label.label-info
+                = link_to '&times;'.html_safe, '#', class: 'small-close', id: tag
+                = tag
+
   .form-actions
     = f.submit t('form.save'), class: 'btn btn-default'

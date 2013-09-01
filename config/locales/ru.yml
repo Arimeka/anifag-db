@@ -40,6 +40,8 @@ ru:
         source: "Источник"
         permalink: "Slug"
         main_image: "Главное изображение"
+        categories: "Категории"
+        tags: "Теги"
     models:
       user: "Пользователь"
 
@@ -85,3 +87,6 @@ ru:
   will_paginate:
     previous_label: "Назад"
     next_label: "Вперед"
+
+  messages:
+    saved: "Сохранено"

@@ -20,7 +20,7 @@ class Article < ActiveRecord::Base
   include Authority::Abilities
   
   attr_accessible :content, :description, :permalink, :source, :title,
-                  :tag_list, :main_image
+                  :tag_list, :main_image, :category_ids, :tags
   acts_as_taggable
 
   include Tire::Model::Search
