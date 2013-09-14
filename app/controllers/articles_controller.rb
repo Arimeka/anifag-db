@@ -20,8 +20,14 @@ class ArticlesController < ApplicationController
     authorize_action_for article
     if article.save
       flash[:success] = t('messages.saved')
-      redirect_to article
+      if params[:commit] == t('form.save_and_exit')
+        redirect_to article
+      else
+        redirect_to edit_article_path article
+      end
     else
+      @errors = article.errors.full_messages
+      flash[:error] = t("messages.save_error")
       render :new
     end
   end
@@ -35,8 +41,14 @@ class ArticlesController < ApplicationController
     puts params[:article]
     if article.update_attributes(params[:article])
       flash[:success] = t('messages.saved')
-      redirect_to article
+      if params[:commit] == t('form.save_and_exit')
+        redirect_to article
+      else
+        redirect_to edit_article_path article
+      end
     else
+      @errors = article.errors.full_messages
+      flash[:error] = t("messages.save_error")
       render :edit
     end
   end

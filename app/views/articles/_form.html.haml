@@ -58,4 +58,8 @@
                 = tag
 
   .form-actions
-    = f.submit t('form.save'), class: 'btn btn-default'
+    - if article
+      = link_to "Удалить", article, method: :delete, data: { confirm: "Уверены?" }, title: "Удалить", class: "btn btn-danger pull-right"
+    = f.submit t('form.save'), class: 'btn btn-success'
+    = f.submit t('form.save_and_exit'), class: 'btn btn-primary'
+    = link_to 'Отмена', :back, class: 'btn'
