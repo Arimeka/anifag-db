@@ -117,8 +117,13 @@ li.rich, li.rich_picker {
 
 article {
   .article-body {
+    margin-bottom: 10px;
     .main-image {
       text-align: center;
     }
+  }
+
+  .article-footer {
+    margin-bottom: 10px;
   }
 }
