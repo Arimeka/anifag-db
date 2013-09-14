@@ -49,7 +49,7 @@
         = f.label :tags, class: 'control-label'
       .controls
         = text_field_tag :tag, nil, 'data-provide' => 'typeahead', 'data-source' => ActsAsTaggableOn::Tag.pluck(:name).to_s, autocomplete: "off"
-        = hidden_field_tag 'article[tag_list]'
+        = hidden_field_tag 'article[tag_list]', article.tag_list.join(',')
         %ul.inline#tags-lables
           - article.tag_list.each do |tag|
             %li
