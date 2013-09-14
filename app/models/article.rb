@@ -39,7 +39,9 @@ class Article < ActiveRecord::Base
     message: 'не соответствует формату URL.'
   }
 
-   default_scope order("created_at DESC")
+  before_save :sanitize_content
+
+  default_scope order("created_at DESC")
 
   def to_param
     "#{id}-#{permalink}"
@@ -61,4 +63,68 @@ class Article < ActiveRecord::Base
     indexes :description,  :analyzer => 'snowball'
     indexes :created_at,   :type => 'date', :include_in_all => false
   end
+
+  private
+    def sanitize_content
+      if self.content
+        check_css = lambda do |env|
+                            node      = env[:node]
+                            node_name = env[:node_name]
+                            # Don't continue if this node is already whitelisted or is not an element.
+                            return if env[:is_whitelisted] || !node.element?
+                            parent = node.parent
+                            return unless node_name == 'style' || node['style']
+                            if node_name == 'style'
+                              unless good_css? node.content
+                                node.unlink
+                                return
+                              end
+                            else
+                              unless good_css? node['style']
+                                node.unlink
+                                return
+                              end
+                            end
+                            {:node_whitelist => [node]}
+                          end
+                          
+        video_emb = lambda do |env|
+                        node      = env[:node]
+                        node_name = env[:node_name]
+                                          
+                        return if env[:is_whitelisted] || !node.element?
+                                          
+                        return unless node_name == 'iframe' || 
+                                      node_name == 'object' || 
+                                      node_name == 'param'  || 
+                                      node_name == 'embed'
+                                          
+                        return unless node['src'] =~ /\Ahttps?:\/\/(?:www\.)?(youtube(?:-nocookie)?\.com)|(ustream\.tv)|(vimeo\.com)\//
+                      
+                        Sanitize.clean_node!(node, {
+                          :elements => %w[iframe object param embed],
+                      
+                          :attributes => {
+                            'iframe'  => %w[allowfullscreen frameborder height src width webkitallowfullscreen mozallowfullscreen],
+                            'object' => %w[width height],
+                            'param' => %w[name value],
+                            'embed' => %w[src type allowfullscreen allowScriptAccess width height],
+                          }
+                        })
+
+                        {:node_whitelist => [node]}
+                      end
+                          
+        self.content = Sanitize.clean(self.content, :elements => ['p', 'blockquote', 'pre', 'h3', 'h4', 'h5', 'h6',
+                                              'b', 'i', 'strike', 'ul', 'li', 'span', 'ol',
+                                              'img', 'br', 'table', 'tbody', 'thead', 'tr', 
+                                              'td', 'th', 'caption', 'a', 'font', 'hr', 'div'],
+                                :attributes => {
+                                                'a'  => ['href', 'title', 'target'],
+                                                'font' => ['color'],
+                                                'img' => ['border', 'height', 'src', 'width']
+                                                },
+                                :transformers => [check_css, video_emb])
+      end    
+    end
 end

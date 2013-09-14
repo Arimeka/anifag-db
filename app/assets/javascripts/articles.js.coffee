@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-  $(".main-image>a").fancybox();
+  $("a[href$='.jpg'],a[href$='.png'],a[href$='.gif']").fancybox();
   category_closer();
   tag_closer();
   return;
