@@ -16,4 +16,7 @@
 //= require bootstrap-alert
 //= require bootstrap-typeahead
 //= require fancybox
-//= require_tree .
+//= require fancybox
+//= require articles
+//= require vendor/modernizr-2.6.2.min
+// require_tree .

@@ -2,6 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+#= require rich
+#= require_tree ./vendor/video-js
+#= require video-js
+
 $('body.articles').ready( ->
   $ ->
     $("a[href$='.jpg'],a[href$='.png'],a[href$='.gif']").fancybox();

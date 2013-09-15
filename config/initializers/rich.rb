@@ -16,6 +16,16 @@ if Object.const_defined?("Rich")
     # you are editing. To disable this:
     #   config.editor[:startupOutlineBlocks] = false
 
+    config.editor[:toolbar] = [
+        ['Format','Styles'],
+        ['Bold', 'Italic', '-','NumberedList', 'BulletedList', 'Blockquote', '-', 'richImage', 'richFile','MediaEmbed', '-', 'Link', 'Unlink'],
+        ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+        ['Video'],
+        ['Source', 'ShowBlocks']        
+    ]
+    config.editor[:allow_embeds] = true
+    config.editor[:extraPlugins] = 'stylesheetparser,richfile,MediaEmbed,video'
+
     
     # == Image styles
     # 
@@ -28,7 +38,7 @@ if Object.const_defined?("Rich")
     # remember to re-generate your styles by running:
     #   rake rich:refresh_assets
     config.image_styles = {
-      :thumb => "160x250#",
+      thumb: "160x250#",
       large: "450x450"
     }
 
