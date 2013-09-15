@@ -97,18 +97,22 @@ class Article < ActiveRecord::Base
                         return unless node_name == 'iframe' || 
                                       node_name == 'object' || 
                                       node_name == 'param'  || 
-                                      node_name == 'embed'
+                                      node_name == 'embed'  ||
+                                      node_name == 'video'  ||
+                                      node_name == 'source'
                                           
-                        return unless node['src'] =~ /\Ahttps?:\/\/(?:www\.)?(youtube(?:-nocookie)?\.com)|(ustream\.tv)|(vimeo\.com)\//
+                        # return unless node['src'] =~ /\Ahttps?:\/\/(?:www\.)?(youtube(?:-nocookie)?\.com)|(ustream\.tv)|(vimeo\.com)\//
                       
                         Sanitize.clean_node!(node, {
-                          :elements => %w[iframe object param embed],
+                          :elements => %w[iframe object param embed video source],
                       
                           :attributes => {
                             'iframe'  => %w[allowfullscreen frameborder height src width webkitallowfullscreen mozallowfullscreen],
                             'object' => %w[width height],
                             'param' => %w[name value],
                             'embed' => %w[src type allowfullscreen allowScriptAccess width height],
+                            'video' => %w[id class controls preload width height poster data-setup src],
+                            'source' => %w[src type]
                           }
                         })
 
