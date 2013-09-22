@@ -23,7 +23,6 @@ if Object.const_defined?("Rich")
         ['Video'],
         ['Source', 'ShowBlocks']        
     ]
-    config.editor[:allow_embeds] = true
     config.editor[:extraPlugins] = 'stylesheetparser,richfile,MediaEmbed,video'
 
     
